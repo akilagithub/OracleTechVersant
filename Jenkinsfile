@@ -4,12 +4,12 @@ node {
     def OutputDirectory = "${WORKSPACE}"
     def BuildArtifactPath = "${OutputDirectory}/build.zip"
     def ReleaseArtifactPath = "${OutputDirectory}/release.zip"
-    def CiDatabaseJdbc = "jdbc:oracle:thin:@//[HOST]:[PORT]/[SERVICE NAME]"
-    def AcceptanceDatabaseJdbc = "jdbc:oracle:thin:@//[HOST]:[PORT]/[SERVICE NAME]"
-    def ProductionDatabaseJdbc = "jdbc:oracle:thin:@//[HOST]:[PORT]/[SERVICE NAME]"
-    def Schema = "[SCHEMA NAME]"
-    def User = "[USER]"				// In a real scenario, you would want to store these safely outside of this script and and pass them in
-    def Password = "[PASSWORD]"		// In a real scenario, you would want to store these safely outside of this script and and pass them in
+    def CiDatabaseJdbc = "jdbc:oracle:thin:@//localhost:1521/XE"
+    def AcceptanceDatabaseJdbc = "jdbc:oracle:thin:@//localhost:1521/XE"
+    def ProductionDatabaseJdbc = "jdbc:oracle:thin:@//localhost:1521/XE"
+    def Schema = "XE"
+    def User = "hr"				// In a real scenario, you would want to store these safely outside of this script and and pass them in
+    def Password = "hr"		// In a real scenario, you would want to store these safely outside of this script and and pass them in
  
     stage ('Checkout') {
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
