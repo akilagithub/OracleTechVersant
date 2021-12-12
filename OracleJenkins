@@ -11,6 +11,13 @@ node {
  
     stage ('Code Analysis') {
         echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
+            withEnv(["JAVA_HOME=$JavaHome"]) {      
+                  withSonarQubeEnv("SonarCloud") {
+                     sh "${tool("SonarScanner")}/bin/sonar-scanner"
+                  }
+            }
+
+
 
     }
      
