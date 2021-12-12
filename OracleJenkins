@@ -26,15 +26,15 @@ node {
       
     }
      
-    stage ('Compile Form') {
+    stage ('Connect to App server') {
         echo "Provisioning a copy of the current Production database"
 
 
     }
      
-    stage ('Connect to App server') {
+    stage ('Compile Form') {
         echo "Generating deployment script against Acceptance; Doing drift detection; Creating changes report"
- 
+        sh "frmcmp  module=$AU_TOP/forms/US/scott_emp.fmb userid=apps/appspassword output_file=$PRODUCT_TOP/forms/USCUSTOM_OE.fmx module_type=form compile_all=yes"
     }
      
     stage ('Deploy to App Server') {
