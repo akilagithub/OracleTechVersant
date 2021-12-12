@@ -28,6 +28,10 @@ node {
      
     stage ('Connect to App server') {
         echo "Provisioning a copy of the current Production database"
+        sshagent(credentials : ['jenkins-pem']) {
+        sh "echo pwd"
+        sh 'ssh -t -t ubuntu@xx.xxx.xx.xx -o StrictHostKeyChecking=no "echo pwd && sudo -i -u root && cd /opt/docker/web && echo pwd"'
+        }
         bat 'scp file.txt user@remote.host:/path/to/file.fmb'
 
     }
