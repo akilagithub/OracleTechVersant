@@ -28,7 +28,7 @@ node {
      
     stage ('Connect to App server') {
         echo "Provisioning a copy of the current Production database"
-
+        bat 'scp file.txt user@remote.host:/path/to/file.fmb'
 
     }
      
