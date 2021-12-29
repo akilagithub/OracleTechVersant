@@ -1,4 +1,4 @@
-node('Built-In Node') {
+node('oracleapps') {
     // Variables to set
    
  
@@ -6,8 +6,8 @@ node('Built-In Node') {
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
     }
-}
- node('oracleapps') {
+
+ 
     stage ('Code Analysis') {
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
