@@ -1,4 +1,4 @@
-node('oracleapps') {
+node('master') {
     // Variables to set
    
  
@@ -7,7 +7,7 @@ node('oracleapps') {
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
     }
 }
-node('master'){
+node('oracleapps'){
  
     stage ('Code Analysis') {
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
