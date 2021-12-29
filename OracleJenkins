@@ -4,18 +4,16 @@ node('oracleapps') {
  
     stage ('SCM Checkout') {
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
-        bat('set')
-        deleteDir()
-        checkout scm
+        git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
     }
  
     stage ('Code Analysis') {
-        echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
+       /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
                   withSonarQubeEnv("SonarCloud") {
                      sh "${tool("SonarScanner")}/bin/sonar-scanner"
                   }
-            }
+            }*/
 
 
 
@@ -28,17 +26,17 @@ node('oracleapps') {
      
     stage ('Connect to App server') {
         echo "Provisioning a copy of the current Production database"
-        sshagent(credentials : ['jenkins-pem']) {
+       /* sshagent(credentials : ['jenkins-pem']) {
         sh "echo pwd"
         sh 'ssh -t -t ubuntu@xx.xxx.xx.xx -o StrictHostKeyChecking=no "echo pwd && sudo -i -u root && cd /opt/docker/web && echo pwd"'
         }
-        bat 'scp file.txt user@remote.host:/path/to/file.fmb'
+        bat 'scp file.txt user@remote.host:/path/to/file.fmb'*/
 
     }
      
     stage ('Compile Form') {
         echo "Generating deployment script against Acceptance; Doing drift detection; Creating changes report"
-        sh "frmcmp  module=$AU_TOP/forms/US/scott_emp.fmb userid=apps/appspassword output_file=$PRODUCT_TOP/forms/USCUSTOM_OE.fmx module_type=form compile_all=yes"
+        //sh "frmcmp  module=$AU_TOP/forms/US/scott_emp.fmb userid=apps/appspassword output_file=$PRODUCT_TOP/forms/USCUSTOM_OE.fmx module_type=form compile_all=yes"
     }
      
     stage ('Deploy to App Server') {
