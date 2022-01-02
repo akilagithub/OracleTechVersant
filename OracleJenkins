@@ -8,24 +8,7 @@ node('master') {
     }
 }
 node('oracleapps'){
-    stage ('copying form to APPS TOP') {
-        echo "Copying fmb from cloned location to respective top location"
-        sh '''
-           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMPFORM.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM.fmb
-           cd /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US
-           mv EMPFORM.fmb EMPFORM_11183704.fmb
-        '''
-    }
     
-    stage ('Setting environment') {
-        echo "setting environment variable"
-        sh '''
-           cd /data/apps
-           ./Casestudyapps.env
-           cd /data/apps/fs1/EBSapps/appl && . *.*
-        '''
-        
-    }
     stage ('Code Analysis') {
         
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
@@ -44,7 +27,24 @@ node('oracleapps'){
       
     }
 
-     
+    stage ('copying form to APPS TOP') {
+        echo "Copying fmb from cloned location to respective top location"
+        sh '''
+           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMPFORM.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM.fmb
+           cd /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US
+           mv EMPFORM.fmb EMPFORM_11183704.fmb
+        '''
+    }
+    
+    stage ('Setting environment') {
+        echo "setting environment variable"
+        sh '''
+           cd /data/apps
+           ./Casestudyapps.env
+           cd /data/apps/fs1/EBSapps/appl && . *.*
+        '''
+        
+    }
     stage ('Compile Form') {
         sh '''
         echo "Compiling the employee form"
