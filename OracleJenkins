@@ -22,7 +22,7 @@ node('oracleapps'){
         sh '''
            cd /data/apps
            ./Casestudyapps.env
-           /data/apps/fs1/EBSapps/appl *.*
+           cd /data/apps/fs1/EBSapps/appl && . *.*
         '''
         
     }
