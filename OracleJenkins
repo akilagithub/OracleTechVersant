@@ -10,6 +10,7 @@ node('master') {
 node('oracleapps'){
  
     stage ('Code Analysis') {
+        sh 'git clone https://github.com/akilagithub/OracleTechVersant.git'
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
                   withSonarQubeEnv("SonarCloud") {
