@@ -19,11 +19,12 @@ node('oracleapps'){
     
     stage ('Setting environment') {
         echo "setting environment variable"
-       /* sh '''
-           cd /data/apps/fs1/EBSapps/appl
-           . *.*
+        sh '''
+           cd /data/apps
+           ./Casestudyapps.env
+           /data/apps/fs1/EBSapps/appl *.*
         '''
-        */
+        
     }
     stage ('Code Analysis') {
         
