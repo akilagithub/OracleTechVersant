@@ -51,10 +51,7 @@ node('oracleapps'){
         '''   
    }
      
-    stage ('Deploy to App Server') {
-        echo "Deploying release to Acceptance database for user and performance testing"
-
-    }
+ 
      
     stage ('Approval Gate'){
         def message = "Approve release to Production?"
