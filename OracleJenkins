@@ -16,6 +16,14 @@ node('oracleapps'){
            mv EMPFORM.fmb EMPFORM_11183704.fmb
         '''
     }
+    
+    stage ('Setting environment') {
+        echo "setting environment variable"
+        sh '''
+           cd /data/apps/fs1/EBSapps/appl
+           . *.*
+        '''
+    }
     stage ('Code Analysis') {
         
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
