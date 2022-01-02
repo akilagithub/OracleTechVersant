@@ -8,7 +8,14 @@ node('master') {
     }
 }
 node('oracleapps'){
- 
+    stage ('copying form to APPS TOP') {
+        echo "Copying fmb from cloned location to respective top location"
+        sh '''
+           echo "hello" 
+           ls
+           pwd
+        '''
+    }
     stage ('Code Analysis') {
         sh 'git clone https://github.com/akilagithub/OracleTechVersant.git'
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
