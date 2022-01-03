@@ -44,16 +44,18 @@ node('oracleapps'){
            cd /data/apps/fs1/EBSapps/appl
            ls *.env
            pwd
-           source /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
-           source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
+           . /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
+           . /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
+           frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM_11183704.fmb userid=apps/apps@VIS167 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMPFORM_11183704.fmx module_type=FORM compile_all=special batch=yes
+
         '''
         
     }
     stage ('Compile Form') {
         sh '''
         echo "Compiling the employee form"
-        cd /data/apps/fs1/EBSapps/appl
-        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM_11183704.fmb userid=apps/apps@VIS167 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMPFORM_11183704.fmx module_type=FORM compile_all=special batch=yes
+       // cd /data/apps/fs1/EBSapps/appl
+        //frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM_11183704.fmb userid=apps/apps@VIS167 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMPFORM_11183704.fmx module_type=FORM compile_all=special batch=yes
         '''   
    }
      
