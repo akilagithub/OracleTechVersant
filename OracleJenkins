@@ -44,8 +44,8 @@ node('oracleapps'){
            cd /data/apps/fs1/EBSapps/appl
            ls *.env
            pwd
-           source APPSVIS135_ip-172-31-43-135.env
-           source VIS135_ip-172-31-43-135.env
+           source /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
+           source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
         '''
         
     }
