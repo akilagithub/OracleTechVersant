@@ -43,8 +43,8 @@ node('oracleapps'){
            ./Casestudyapps.env
            cd /data/apps/fs1/EBSapps/appl
            ls *.env
-           . APPSVIS135_ip-172-31-43-135.env
-           . VIS135_ip-172-31-43-135.env
+           source APPSVIS135_ip-172-31-43-135.env
+           source VIS135_ip-172-31-43-135.env
         '''
         
     }
