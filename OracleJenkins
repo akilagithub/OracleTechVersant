@@ -37,7 +37,9 @@ node('oracleapps'){
     
     stage ('Setting environment') {
         echo "setting environment variable"
-        sh /data/apps/fs1/EBSapps/appl/demo.sh
+        sh '''
+        /data/apps/fs1/EBSapps/appl/demo.sh
+        '''
         
     }
     stage ('Compile Form') {
