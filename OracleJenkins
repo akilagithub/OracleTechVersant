@@ -8,8 +8,8 @@ node('master') {
     }
 }
 node('oracleapps'){
-    def FORM_NAME = 'EMP11183.fmb'
-    def FORM_COMP_NAME = 'EMP11183.fmx'
+    def FORM_NAME = 'EMP11183'
+    def FORM_COMP_NAME = 'EMP11183'
     stage ('Code Analysis') {
         
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
@@ -50,7 +50,7 @@ node('oracleapps'){
         source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
         echo hello
         echo $?
-        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/${FORM_NAME} userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/${FORM_COMP_NAME} module_type=FORM compile_all=special batch=yes
+        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/${FORM_NAME}.fmb userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/${FORM_COMP_NAME}.fmx module_type=FORM compile_all=special batch=yes
         echo demo
         echo $?
         '''
