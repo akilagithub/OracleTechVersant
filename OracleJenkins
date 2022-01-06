@@ -44,8 +44,8 @@ node('oracleapps'){
         ls *.env
         echo "Added new line"
         pwd
-        . /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
-        . /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
+        source /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
+        source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
 
         '''
         
