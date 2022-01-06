@@ -8,11 +8,15 @@ node('master') {
     }
 }
 node('oracleapps'){
-    def FORM_NAME='EMP11183.fmb'
+def FORM_NAME='EMP11183.fmb'
     def FORM_COMP_NAME='EMP11183.fmx'
+parameters {
+        stringParam('FORM_NAME', 'EMP11183.fmb' ,'***Do Not Change these default values***')
+        stringParam('FORM_COMP_NAME', 'EMP11183.fmx','***Do Not Change these default values***')   
+		choiceParam('deploy_env', ['dev', 'staging', 'prod'], '***Do Not Change these default values***')
+    }
+    
     stage ('Code Analysis') {
-       
-        echo "${FORM_NAME}" welcome
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
                   withSonarQubeEnv("SonarCloud") {
