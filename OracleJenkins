@@ -37,7 +37,7 @@ node('oracleapps'){
     
     stage ('Setting environment') {
         echo "setting environment variable"
-        
+        try{
         sh '''
         cd /data/apps
         ./Casestudyapps.env
@@ -53,6 +53,9 @@ node('oracleapps'){
         echo demo
         echo $?
         '''
+        } catch(Exception e){
+            sh 'i am failed'
+        }
         
     }
     stage ('Compile Form') {
