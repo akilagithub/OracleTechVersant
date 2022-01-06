@@ -54,7 +54,9 @@ node('oracleapps'){
         echo $?
         '''
         } catch(Exception e){
-            sh 'i am failed'
+            sh '''
+            echo demo1
+            '''
         }
         
     }
