@@ -30,9 +30,8 @@ node('oracleapps'){
     stage ('copying form to APPS TOP') {
         echo "Copying fmb from cloned location to respective top location"
         sh '''
-           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMPFORM.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM.fmb
-           cd /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US
-           mv EMPFORM.fmb EMPFORM_11183704.fmb
+           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMP11183.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183.fmb
+           
         '''
     }
     
@@ -46,7 +45,7 @@ node('oracleapps'){
            pwd
            . /data/apps/fs1/EBSapps/appl/APPSVIS135_ip-172-31-43-135.env
            . /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
-           frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMPFORM_11183704.fmb userid=apps/apps@VIS167 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMPFORM_11183704.fmx module_type=FORM compile_all=special batch=yes
+           frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183.fmb userid=apps/apps@VIS167 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMP11183.fmx module_type=FORM compile_all=special batch=yes
 
         '''
         
