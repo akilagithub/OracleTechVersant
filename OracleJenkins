@@ -10,10 +10,16 @@ node('master') {
 node('oracleapps'){
     stage ('SCM Checkout') {
     	WORKING_DIR = 'OracleTechVersant'
+	DIR="/data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/akila11183704"
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
 	sh '''
 	cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace
-	mkdir akila11183704
+	if [ -d "$DIR" ]; then
+  		echo "${DIR} Exist..."
+	else
+ 		 mkdir akila11183704
+  		exit 1
+	fi
 	cd akila11183704
 	if [ -d "$WORKING_DIR" ]; then rm -Rf $WORKING_DIR; fi
         git clone https://github.com/akilagithub/OracleTechVersant.git
