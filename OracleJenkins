@@ -20,10 +20,12 @@ node('oracleapps'){
  withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
     withSonarQubeEnv('SonarQube') {
                 println('Sonar Method enter');
+		sh '''
+		cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant
 				//def scannerHome = tool 'Sonar Scanner';
 				sh sonar-scanner -Dsonar.login=$USERNAME -Dsonar.password=$PASSWORD";
                 echo "Access the SonarQube URL from the Platform Dashboard tile"
-				              
+		'''              
 				}
     
 }
