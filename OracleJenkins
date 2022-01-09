@@ -25,7 +25,7 @@ node('master') {
     }
 }
 node('oracleapps'){
-    stage ('SCM Checkout') {
+    stage ('Creating Workspace in apps server') {
     	
 	
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
@@ -69,7 +69,7 @@ node('oracleapps'){
         echo "Copying fmb from cloned location to respective top location"
         sleep 20
         sh '''
-           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMP11183.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183.fmb
+           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/akila11183704/OracleTechVersant/EMP11183.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183704.fmb
            
         '''
     }
@@ -89,7 +89,7 @@ node('oracleapps'){
         source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
         echo hello
         echo $?
-        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183.fmb userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMP11183.fmx module_type=FORM compile_all=special batch=yes
+        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183704.fmb userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/EMP11183704.fmx module_type=FORM compile_all=special batch=yes
         echo demo
         echo $?
         '''
