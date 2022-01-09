@@ -10,7 +10,7 @@ node('master') {
 node('oracleapps'){
     
     stage ('Code Analysis') {
-    sleep 30
+   // sleep 30
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
                   withSonarQubeEnv("SonarCloud") {
@@ -18,7 +18,7 @@ node('oracleapps'){
                   }
             }*/
 
-
+    
 
     }
      
