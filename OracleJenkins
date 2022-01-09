@@ -10,6 +10,7 @@ node('master') {
 node('oracleapps'){
     
     stage ('Code Analysis') {
+    sleep 30
        /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
             withEnv(["JAVA_HOME=$JavaHome"]) {      
                   withSonarQubeEnv("SonarCloud") {
@@ -22,12 +23,14 @@ node('oracleapps'){
     }
      
     stage ('Unit Tests') {
+    sleep 40
         echo "Running utPLSQL database Unit Tests"
       
     }
 
     stage ('copying form to APPS TOP') {
         echo "Copying fmb from cloned location to respective top location"
+        sleep 20
         sh '''
            cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/OraclePipeline/OracleTechVersant/EMP11183.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/EMP11183.fmb
            
@@ -35,7 +38,8 @@ node('oracleapps'){
     }
     
     stage ('Setting environment') {
-        echo "setting environment variable"
+        echo "setting environment variable
+        sleep 20
         try{
         sh '''
         cd /data/apps
@@ -91,6 +95,7 @@ node('oracleapps'){
      
     stage ('Deploy to Production') {
         echo "Deploying release to Production database"
+        sleep 30
  
     }
 }
