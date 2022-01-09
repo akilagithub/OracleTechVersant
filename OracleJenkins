@@ -38,7 +38,7 @@ node('oracleapps'){
     }
     
     stage ('Setting environment') {
-        echo "setting environment variable
+        echo "setting environment variable"
         sleep 20
         try{
         sh '''
