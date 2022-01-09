@@ -8,6 +8,10 @@ node('master') {
     }
 }
 node('oracleapps'){
+    stage ('SCM Checkout') {
+        echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
+        git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
+    }
     
     stage ('Code Analysis') {
    // sleep 30
