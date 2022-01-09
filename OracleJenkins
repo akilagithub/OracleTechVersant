@@ -6,6 +6,23 @@ node('master') {
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
         git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
     }
+    
+        stage ('Code Analysis') {
+   
+ withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
+    withSonarQubeEnv('SonarQube') {
+                println('Sonar Method enter');
+		//sh '''
+		//cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/akila11183704/OracleTechVersant
+				//def scannerHome = tool 'Sonar Scanner';
+				//sh /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.login=$USERNAME -Dsonar.password=admin";
+                bat 'sonar-scanner'
+		echo "Access the SonarQube URL from the Platform Dashboard tile"
+		//'''              
+				}
+    
+}
+    }
 }
 node('oracleapps'){
     stage ('SCM Checkout') {
@@ -26,14 +43,8 @@ node('oracleapps'){
 	'''
     }
     
-    stage ('Code Analysis') {
-   // sleep 30
-       /* echo "Migrating the project to a cleaned CI database; Running Code Analysis for Oracle; Checking for Invalid Objects"
-            withEnv(["JAVA_HOME=$JavaHome"]) {      
-                  withSonarQubeEnv("SonarCloud") {
-                     sh "${tool("SonarScanner")}/bin/sonar-scanner"
-                  }
-            }*/
+  /*  stage ('Code Analysis') {
+   
  withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
     withSonarQubeEnv('SonarQube') {
                 println('Sonar Method enter');
@@ -46,7 +57,7 @@ node('oracleapps'){
 				}
     
 }
-    }
+    }*/
      
     stage ('Unit Tests') {
     sleep 40
