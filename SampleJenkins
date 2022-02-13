@@ -27,12 +27,12 @@ node('oracleapps'){
 myvar = 'TRAININGDETAILS11183704'
     stage ('Creating Workspace in apps server') {
     	echo "$myvar"
-    	USER = `echo $myvar`
+    	
 	
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
 	sh '''
 	cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace
-	if [ -d /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/${USER}]; then
+	if [ -d "/data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/${myvar}"]; then
   		echo " Exist..."
 	else
  		 mkdir $myvar
