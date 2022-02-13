@@ -26,7 +26,7 @@ git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akil
 node('oracleapps'){
 myvar = 'akila11183704ak'
     stage ('Creating Workspace in apps server') {
-    	echo $(myvar)
+    	echo ${myvar}
 	
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
 	sh '''
