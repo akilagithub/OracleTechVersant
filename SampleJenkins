@@ -32,10 +32,10 @@ def myvar = 'TRAININGDETAILS11183704'
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
 	sh '''
 	cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace
-	if [ -d "/data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/${myvar}"]; then
+	if [ -d /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/TRAININGDETAILS11183704]; then
   		echo " Exist..."
 	else
- 		 mkdir $myvar
+ 		 mkdir TRAININGDETAILS11183704
   		exit 1
 	fi
 	cd $myvar
@@ -70,7 +70,7 @@ def myvar = 'TRAININGDETAILS11183704'
         echo "Copying fmb from cloned location to respective top location"
         sleep 20
         sh '''
-           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/"$myvar"/OracleTechVersant/"$myvar".fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/"$myvar".fmb
+           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/TRAININGDETAILS11183704/OracleTechVersant/TRAININGDETAILS11183704.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/TRAININGDETAILS11183704.fmb
            
         '''
     }
@@ -90,7 +90,7 @@ def myvar = 'TRAININGDETAILS11183704'
         source /data/apps/fs1/EBSapps/appl/VIS135_ip-172-31-43-135.env
         echo hello
         echo $?
-        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/$myvar.fmb userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/$myvar.fmx module_type=FORM compile_all=special batch=yes
+        frmcmp_batch module=/data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/TRAININGDETAILS11183704.fmb userid=apps/clone@VIS135 output_file=/data/apps/fs1/EBSapps/appl/po/12.0.0/forms/US/TRAININGDETAILS11183704.fmx module_type=FORM compile_all=special batch=yes
         echo demo
         echo $?
         '''
