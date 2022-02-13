@@ -31,7 +31,7 @@ myvar = 'TRAININGDETAILS11183704'
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
 	sh '''
 	cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace
-	if [ -d /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/$myvar ]; then
+	if [ -d /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/`echo $myvar` ]; then
   		echo " Exist..."
 	else
  		 mkdir $myvar
