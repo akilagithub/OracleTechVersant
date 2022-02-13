@@ -38,7 +38,7 @@ def myvar = 'TRAININGDETAILS11183704'
  		 mkdir TRAININGDETAILS11183704
   		exit 1
 	fi
-	cd $myvar
+	cd TRAININGDETAILS11183704
 	if [ -d OracleTechVersant ]; then rm -Rf OracleTechVersant; fi
         git clone https://github.com/akilagithub/OracleTechVersant.git
 	'''
