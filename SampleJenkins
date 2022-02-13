@@ -4,7 +4,6 @@ node('master') {
  
     stage ('SCM Checkout') {
         echo "Ensure the pipeline is configured to clean the Jenkins workspace before checkout"
-        //git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akilagithub/OracleTechVersant.git'
     }
     
         stage ('Code Analysis') {
@@ -16,7 +15,6 @@ node('master') {
 		//cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/akila11183704/OracleTechVersant
 				//def scannerHome = tool 'Sonar Scanner';
 				//sh /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.login=$USERNAME -Dsonar.password=admin";
-                bat 'sonar-scanner'
 		echo "Access the SonarQube URL from the Platform Dashboard tile"
 		//'''              
 				}
