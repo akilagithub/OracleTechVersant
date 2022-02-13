@@ -24,7 +24,7 @@ git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akil
     }
 }
 node('oracleapps'){
-myvar = 'TRAININGDETAILS11183704'
+def myvar = 'TRAININGDETAILS11183704'
     stage ('Creating Workspace in apps server') {
     	echo "$myvar"
     	
