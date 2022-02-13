@@ -24,7 +24,7 @@ git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akil
     }
 }
 node('oracleapps'){
-myvar = 'akila11183704ak'
+myvar = 'TRAININGDETAILS11183704'
     stage ('Creating Workspace in apps server') {
     	echo "$myvar"
 	
@@ -69,7 +69,7 @@ myvar = 'akila11183704ak'
         echo "Copying fmb from cloned location to respective top location"
         sleep 20
         sh '''
-           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/$myvar/OracleTechVersant/EMP11183.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/$myvar.fmb
+           cp /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/$myvar/OracleTechVersant/$myvar.fmb /data/apps/fs1/EBSapps/appl/au/12.0.0/forms/US/$myvar.fmb
            
         '''
     }
