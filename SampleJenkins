@@ -12,12 +12,9 @@ git branch: 'main', changelog: false, poll: false, url: 'https://github.com/akil
  withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
     withSonarQubeEnv('SonarQube') {
                 println('Sonar Method enter');
-		//sh '''
-		//cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/akila11183704/OracleTechVersant
-				//def scannerHome = tool 'Sonar Scanner';
-				//sh /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.login=$USERNAME -Dsonar.password=admin";
+		
 		echo "Access the SonarQube URL from the Platform Dashboard tile"
-		//'''              
+		             
 				}
     
 }
@@ -44,21 +41,6 @@ def myvar = 'TRAININGDETAILS11183704'
 	'''
     }
     
-  /*  stage ('Code Analysis') {
-   echo "$myvar"
- withCredentials([usernamePassword(credentialsId: 'SONAR', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]){
-    withSonarQubeEnv('SonarQube') {
-                println('Sonar Method enter');
-		sh '''
-		cd /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/$myvar/OracleTechVersant
-				//def scannerHome = tool 'Sonar Scanner';
-				sh /data/apps/fs1/EBSapps/appl/po/12.0.0/workspace/sonar-scanner-4.6.2.2472-linux/bin/sonar-scanner -Dsonar.login=$USERNAME -Dsonar.password=admin";
-                echo "Access the SonarQube URL from the Platform Dashboard tile"
-		'''              
-				}
-    
-}
-    }*/
      
     stage ('Unit Tests') {
     sleep 40
